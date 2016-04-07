@@ -1,8 +1,7 @@
 package co.thaismartins.user;
 
-public class UserDAO {
+import co.thaismartins.utils.BaseDAO;
 
-	public void create(User user) {
-		
-	}
+public class UserDAO extends BaseDAO<User, Integer> {
+
 }

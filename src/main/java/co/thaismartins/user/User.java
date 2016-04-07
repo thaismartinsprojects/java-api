@@ -1,15 +1,27 @@
 package co.thaismartins.user;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "cms_user")
+public class User implements Serializable {
 	
+	private static final long serialVersionUID = 3405633282994583165L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
+	
 	private String name;
-	private String user;
+	private String login;
 	private String email;
 	private String pass;
-	private Date created_at;
 	
 	public Integer getId() {
 		return id;
@@ -27,12 +39,12 @@ public class User {
 		this.name = name;
 	}
 	
-	public String getUser() {
-		return user;
+	public String getLogin() {
+		return login;
 	}
 	
-	public void setUser(String user) {
-		this.user = user;
+	public void setLogin(String user) {
+		this.login = user;
 	}
 	
 	public String getEmail() {
@@ -49,13 +61,5 @@ public class User {
 	
 	public void setPass(String pass) {
 		this.pass = pass;
-	}
-	
-	public Date getCreated_at() {
-		return created_at;
-	}
-	
-	public void setCreated_at(Date created_at) {
-		this.created_at = created_at;
 	}
 }

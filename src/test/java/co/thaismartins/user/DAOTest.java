@@ -1,20 +1,23 @@
 package co.thaismartins.user;
 
-public class DAOTest {
+import org.junit.Test;
 
-	public static void main(String[] args) {
+public class DAOTest {
+	
+	@Test
+	public void testSave() {
 		
 		User user = getUser();
 		UserDAO userDAO = new UserDAO();
-		userDAO.create(user);
-		
+		User user2 = userDAO.save(user);
+		System.out.println(user2.getId());
 	}
 
 	private static User getUser() {
 		
 		User user = new User();
 		user.setName("Administrador");
-		user.setUser("admin");
+		user.setLogin("admin");
 		user.setEmail("admin@admin.com.br");
 		user.setPass("admin123");
 		
